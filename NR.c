@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#define e 0.0001
+#define f(x) pow(x,3)-20
+#define df(x) 3*pow(x,3)
+void main ()
+{
+int n=0;
+float x0,x1;
+float f0,df0;
+printf("ENTER THE INITIAL GUESS X0");
+scanf("%f",&x0);
+do
+           {
+              f0=f(x0);
+              df0=df(x0);
+              x1=x0-f0/df0;
+              x0=x1;
+              f0=f(x0);
+              n++;
+              printf("\n NUMBER OF ITERATIONS=%d\t",n);
+              printf("\t ROOT OF FUNCTION IS=%f\t",x0);
+              printf("\t VALUE OF FUNCTION =%f\t",f0);
+              }
+              while(fabs(f0)>e);
+              getch;
+}
